@@ -39,7 +39,6 @@ with OperateInDirectory(str(MIME_DIR)):
     )
     if file_code != 0:
         exit('Failed to properly compile magic file\n{}'.format(file_output))
-    print('!!!!! \n\n\n !!!!!!')
 
 
 setup(
