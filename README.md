@@ -1,5 +1,7 @@
 # FACT helper file
 
+[![Build Status](https://travis-ci.com/fkie-cad/fact_helper_file.svg?branch=master)](https://travis-ci.com/fkie-cad/fact_helper_file)
+
 This library offers two functions:
 
 ```python
