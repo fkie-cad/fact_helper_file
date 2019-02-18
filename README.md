@@ -19,8 +19,8 @@ This project is partly financed by [German Federal Office for Information Securi
 
 ## License
 ```
-    Firmware Analysis and Comparison Tool (FACT) extractor
-    Copyright (C) 2015-2019  Fraunhofer FKIE
+    fact helper file 
+    Copyright (C) 2019  Fraunhofer FKIE
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
