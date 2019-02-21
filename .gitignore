@@ -1,8 +1,11 @@
-.venv
-.pyc
-__pycache__/
-.idea/
 .cache/
-.pytest_cache/
-bin/
 .coverage
+.idea/
+.project
+.pyc
+.pydevproject
+.pytest_cache/
+.venv
+__pycache__/
+bin/
+build/
