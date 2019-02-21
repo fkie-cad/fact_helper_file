@@ -7,5 +7,8 @@ install:
   - python3 setup.py build
   - python3 setup.py install
   - pip3 install -r requirements-dev.txt
+  - pip3 install codecov
 script:
   - py.test --cov=./fact_helper_file
+after_success:
+- codecov
