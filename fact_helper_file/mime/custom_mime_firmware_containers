@@ -648,7 +648,7 @@
 >24 lelong x File Length: %d
 >28 lelong x Maximum Size: %d
 >32 lelong x Content Offset: 0x%X
->36 lelong x Signature Lenght: %d
+>36 lelong x Signature Length: %d
 >40 lelong x Jump Offset: %d
 >44 lelong &0x1 POST_BUILD_DONE
 >44 lelong &0x2 XIP (Execute In Place)
@@ -700,3 +700,6 @@
 0	regex	\^:[A-F0-9]{8,}$	Intel HEX
 !:mime	firmware/intel-hex
 
+# Motorola S-Record
+0   regex  \^S[0-57-9][0-9A-F]{8,}$  Motorola S-Record; binary data in text format
+!:mime  firmware/srecord
