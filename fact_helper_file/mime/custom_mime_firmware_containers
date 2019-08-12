@@ -711,4 +711,4 @@
 # Tektronik Extended HEX file format
 0   regex  \^%[0-9A-F]{8,}$  Tektronix extended HEX; binary data in text format
 !:mime  firmware/xtek
-s
+
