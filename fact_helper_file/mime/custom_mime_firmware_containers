@@ -703,3 +703,12 @@
 # Motorola S-Record
 0   regex  \^S[0-57-9][0-9A-F]{8,}$  Motorola S-Record; binary data in text format
 !:mime  firmware/srecord
+
+# Tektronik HEX file format
+0   regex  \^/[0-9A-F]{8,}$  Tektronix HEX; binary data in text format
+!:mime  firmware/tek
+
+# Tektronik Extended HEX file format
+0   regex  \^%[0-9A-F]{8,}$  Tektronix extended HEX; binary data in text format
+!:mime  firmware/xtek
+
