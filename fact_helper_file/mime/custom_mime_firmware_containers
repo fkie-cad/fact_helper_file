@@ -700,6 +700,10 @@
 0	regex	\^:[A-F0-9]{8,}$	Intel HEX
 !:mime	firmware/intel-hex
 
+# D-Link HAD
+0x60	string	\x46\x4C\x41\x53\x48\x5F\x30\x32	D-Link HAD
+!:mime	firmware/dlink-had
+
 # Motorola S-Record
 0   regex  \^S[0-57-9][0-9A-F]{8,}$  Motorola S-Record; binary data in text format
 !:mime  firmware/srecord
