@@ -1,3 +1,5 @@
+*.egg-info/
+*.mgc
 .cache/
 .coverage
 .idea/
@@ -9,3 +11,4 @@
 __pycache__/
 bin/
 build/
+dist/
