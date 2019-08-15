@@ -17,3 +17,7 @@
 0   regex  \^%[0-9A-F]{8,}$  Tektronix extended HEX; binary data in text format
 !:mime  firmware/xtek
 
+# Adobe Ascii85 stream
+0   string  <~
+>2   regex  [a-zA-Z0-9!#$%&()*+;<=>?@^_`-]{15,}    Adobe ASCII85 encoding
+!:mime  firmware/adobe85
