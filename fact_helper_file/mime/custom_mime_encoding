@@ -21,6 +21,6 @@
 !:mime  firmware/xtek
 
 # Adobe Ascii85 stream
-0   string  <~
+0   string  \<~
 >2  regex  [a-zA-Z0-9!#$%&()*+;<=>?@^_`-]{20,}    Adobe ASCII85 encoding
 !:mime  firmware/adobe85
