@@ -5,8 +5,8 @@
 !:mime	firmware/intel-hex
 
 # Motorola S-Record
-0 	string	S0
->2   regex  [0-9A-F]{8,}$  Motorola S-Record; binary data in text format
+0 	string   S
+>1  regex  [0-3][0-9A-F]{8,}$  Motorola S-Record; binary data in text format
 !:mime  firmware/srecord
 
 # Tektronik HEX file format
