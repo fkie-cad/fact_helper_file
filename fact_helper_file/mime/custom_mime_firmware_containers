@@ -699,3 +699,7 @@
 # D-Link HAD
 0x60	string	\x46\x4C\x41\x53\x48\x5F\x30\x32	D-Link HAD
 !:mime	firmware/dlink-had
+
+# D-Link SHRS
+0       string  \x53\x48\x52\x53    D-Link SHRS
+!:mime firmware/dlink-shrs
