@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+import sys
 from pathlib import Path
 from subprocess import Popen, PIPE
 
@@ -31,19 +32,19 @@ def execute_shell_command(shell_command):
 
 os.makedirs(str(MIME_DIR.parent / 'bin'), exist_ok=True)
 with OperateInDirectory(str(MIME_DIR)):
-    file_output, file_code = execute_shell_command(
+    FILE_OUTPUT, FILE_CODE = execute_shell_command(
         '(cat custom_* > custommime)'
         ' && file -C -m custommime'
         ' && mv -f custommime.mgc ../bin/'
         ' && rm custommime'
     )
-    if file_code != 0:
-        exit('Failed to properly compile magic file\n{}'.format(file_output))
+    if FILE_CODE != 0:
+        sys.exit('Failed to properly compile magic file\n{}'.format(FILE_OUTPUT))
 
 
 setup(
     name=MODULE_NAME,
-    version='0.2.6',
+    version='0.2.7',
     description='Helper functions for file type generation',
     author='Johannes vom Dorp',
     url='https://github.com/fkie-cad/fact_helper_file',
