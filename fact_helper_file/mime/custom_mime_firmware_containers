@@ -13,7 +13,8 @@
 20 string \x49\x4d\x47\x30\x00\x17	TP-Link WR702N Image
 !:mime firmware/tp-wr702n
 
-## the following firmware signatures originate to binwalk
+## The following firmware signatures originate from
+## [binwalk](https://github.com/ReFirmLabs/binwalk) which is MIT licensed
 
 #IMG0 header, found in VxWorks-based Mercury router firmware
 0       string        IMG0    IMG0 (VxWorks) header,
@@ -374,6 +375,7 @@
 
 # NPK firmware header, used by Mikrotik
 0           belong        0x1EF1D0BA   NPK firmware header,
+!:mime firmware/microtic-npk
 >4          lelong        <0           {invalid}
 >4          lelong        x            image size: %d,
 >14         string        x            image name: "%s",
