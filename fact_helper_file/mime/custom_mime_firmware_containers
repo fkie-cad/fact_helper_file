@@ -375,7 +375,7 @@
 
 # NPK firmware header, used by Mikrotik
 0           belong        0x1EF1D0BA   NPK firmware header,
-!:mime firmware/microtic-npk
+!:mime firmware/mikrotik-npk
 >4          lelong        <0           {invalid}
 >4          lelong        x            image size: %d,
 >14         string        x            image name: "%s",
