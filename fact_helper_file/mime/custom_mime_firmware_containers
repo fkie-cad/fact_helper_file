@@ -705,3 +705,8 @@
 # D-Link SHRS
 0       string  \x53\x48\x52\x53    D-Link SHRS
 !:mime firmware/dlink-shrs
+
+# Bosch Firmware
+# Source: James Thomas, https://www.anvilventures.com/blog/unpacking-bosch-surveillance-camera-firmware.html
+0       string  \x10\x12\x20\x03    Bosch Firmware
+!:mime firmware/bosch
