@@ -457,3 +457,7 @@
 >>8 string	\xff\xff	YAFFS filesystem, big endian
 !:mime filesystem/yaffs
 
+# f2fs filesystem - Tuomas Tynkkynen <tuomas.tynkkynen@iki.fi>
+# source: https://github.com/file/file/blob/master/magic/Magdir/filesystems
+0x400	lelong		0xF2F52010	F2FS filesystem
+!:mime filesystem/f2fs
