@@ -1,7 +1,7 @@
 # ====================== encoded file types ======================
 
 # Intel HEX
-0	regex	\^:[A-F0-9]{8,}$	Intel HEX
+0	regex	\^:[A-F0-9a-f]{8,}$	Intel HEX
 !:mime	firmware/intel-hex
 
 # Motorola S-Record
