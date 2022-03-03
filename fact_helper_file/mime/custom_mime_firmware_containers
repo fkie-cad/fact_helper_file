@@ -710,3 +710,7 @@
 # Source: James Thomas, https://www.anvilventures.com/blog/unpacking-bosch-surveillance-camera-firmware.html
 0       string  \x10\x12\x20\x03    Bosch Firmware
 !:mime firmware/bosch
+
+# SDN unpacker (artificial)
+0	string \x53\x44\x4E	FKIE SDN Unpacker
+!:mime	firmware/sdn
