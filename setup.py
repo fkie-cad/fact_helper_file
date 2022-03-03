@@ -44,7 +44,7 @@ with OperateInDirectory(str(MIME_DIR)):
 
 setup(
     name=MODULE_NAME,
-    version='0.2.10',
+    version='0.2.11',
     description='Helper functions for file type generation',
     author='Johannes vom Dorp',
     url='https://github.com/fkie-cad/fact_helper_file',
