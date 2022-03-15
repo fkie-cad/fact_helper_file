@@ -461,3 +461,63 @@
 # source: https://github.com/file/file/blob/master/magic/Magdir/filesystems
 0x400	lelong		0xF2F52010	F2FS filesystem
 !:mime filesystem/f2fs
+
+#--------------------------------------------------------------------
+# Qemu Emulator Image
+# Lines written by Friedrich Schwittay (f.schwittay@yousable.de)
+# Updated by Adam Buchbinder (adam.buchbinder@gmail.com)
+# Made by reading sources, reading documentation, and doing trial and error
+# on existing QCOW files
+0       string        QFI\xFB       QEMU QCOW Image
+
+# BSD 2.x file system image; used in RetroBSD for PIC32.
+0        string        FS\x3C\x3C       BSD 2.x filesystem,
+>1020    string        !\x3E\x3EFS      {invalid}(missing FSMAGIC2),
+>8       lelong*1024   x                size: %d bytes,
+>8       lelong*1024   x                {size:%d}
+>8       lelong*1024   x                {jump:%d}
+>8       lelong        x                total blocks: %d,
+>972     lelong        x                free blocks: %d,
+>968     uledate        x                last modified: %s
+>980     byte          !0
+>>980    string        x                \b, last mounted on: "%s"
+
+# Simple file system found in Foscam camera firmware
+0       beshort  0xbd9a  Foscam WebUI filesystem,
+>2      uleshort x       checksum: 0x%X,
+>16     lelong   <3      {invalid}invalid first file name length,
+>16     lelong   >127    {invalid}invalid first file name length,
+>20     byte     0       {invalid}invalid first file name,
+>20     byte     !0x2E
+>>20    byte     !0x2F
+>>>20   byte     <65     {invalid}invalid first file name,
+>>>20   byte     >122    {invalid}invalid first file name,
+>16     lelong   x       {strlen:%d}
+>20     string   x       first file name: "{string}"
+
+# QNX4 Filesystem
+0       string   \xEB\x10\x90\x00    QNX4 Boot Block
+
+# QNX6 Filesystem
+# https://www.forensicfocus.com/Forums/viewtopic/t=16846/
+# Also known as the QNX6_SUPER_MAGIC (in linux sources)
+0       string   \x68\x19\x11\x22    QNX6 Super Block
+
+# QNX IFS
+0       string    \xEB\x7E\xFF\x00                                  QNX IFS,
+>7      byte      !0                                                {invalid}
+>50     leshort   !0                                                {invalid}
+>52     string    !\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00 {invalid}
+>36     lelong    x                                                 size: %d bytes,
+>36     lelong    x                                                 {size:%d}
+>10     leshort   x                                                 machine-type: 0x%x,
+>6      byte&0x02 0                                                 little endian,
+>6      byte&0x02 !0                                                big endian,
+>6      byte&0x1c 0                                                 plain text,
+>6      byte&0x1c !0
+>>36    lelong    x                                                 {jump:%d}
+>6      byte&0x1c 0x02                                              SHIFT-compressed,
+>6      byte&0x1c 0x04                                              ZLIB-compressed,
+>6      byte&0x1c 0x08                                              LZO-compressed,
+>6      byte&0x1c 0x0c                                              UCL-compressed,
+>4      uleshort   x                                                version: %d
