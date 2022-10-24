@@ -2,7 +2,7 @@ default_stages: [commit, push]
 exclude: ^src/bin/
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.1.0
+    rev: v4.0.1
     hooks:
     -   id: check-added-large-files
         args: [--maxkb=10000]
@@ -13,6 +13,8 @@ repos:
 
     -   id: check-yaml
 
+    -   id: double-quote-string-fixer
+
     -   id: end-of-file-fixer
         types: [python]
 
@@ -20,10 +22,7 @@ repos:
         args: [--remove]
 
     -   id: file-contents-sorter
-        files: src/unpacker/passwords|.gitignore|_list.txt
-
-    -   id: flake8
-        args: [--ignore=E501]
+        files: .gitignore|_list.txt
 
     -   id: forbid-new-submodules
 
@@ -35,16 +34,20 @@ repos:
     -   id: trailing-whitespace
         types: [python]
 
+-   repo: https://gitlab.com/pycqa/flake8
+    rev: 3.9.2
+    hooks:
+    -   id: flake8
 
 -   repo: https://github.com/pre-commit/mirrors-pylint
-    rev: v2.2.2
+    rev: v3.0.0a4
     hooks:
     -   id: pylint
         language: system
-        args: [--rcfile=.pylintrc]
+        args: [--rcfile=pyproject.toml]
 
 -   repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 1.11.0
+    rev: 2.1.5
     hooks:
     -   id: shellcheck
 
@@ -52,3 +55,18 @@ repos:
     rev: v0.1.0
     hooks:
     -   id: dockerfilelint
+
+-   repo: https://github.com/pre-commit/mirrors-jshint
+    rev: v2.13.0
+    hooks:
+    -   id: jshint
+
+-   repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.9.3
+    hooks:
+    -   id: isort
+
+-   repo: https://github.com/ambv/black
+    rev: stable
+    hooks:
+    -   id: black
