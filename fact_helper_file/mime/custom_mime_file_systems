@@ -461,3 +461,14 @@
 # source: https://github.com/file/file/blob/master/magic/Magdir/filesystems
 0x400	lelong		0xF2F52010	F2FS filesystem
 !:mime filesystem/f2fs
+
+# Android sparse img format
+# From https://android.googlesource.com/\
+# platform/system/core/+/master/libsparse/sparse_format.h
+0		lelong	0xed26ff3a		Android sparse image
+!:mime filesystem/android-simg
+>4		leshort	x			\b, version: %d
+>6		leshort	x			\b.%d
+>16		lelong	x			\b, Total of %d
+>12		lelong	x			\b %d-byte output blocks in
+>20		lelong	x			\b %d input chunks.
