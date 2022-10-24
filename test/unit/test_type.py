@@ -7,7 +7,7 @@ def test_get_file_type_system_magic():
     zip_file = Path(__file__).parent.parent / 'data' / 'test.zip'
     file_type = get_file_type_from_path(str(zip_file))
     assert file_type['mime'] == 'application/zip', 'mime type not correct'
-    assert file_type['full'] == 'Zip archive data, at least v2.0 to extract', 'full type not correct'
+    assert file_type['full'].startswith('Zip archive data, at least v2.0 to extract'), 'full type not correct'
 
     assert file_type == get_file_type_from_binary(zip_file.read_bytes())
 
