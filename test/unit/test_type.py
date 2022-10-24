@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from fact_helper_file.type import get_file_type_from_path, get_file_type_from_binary
+from fact_helper_file.type import get_file_type_from_binary, get_file_type_from_path
 
 
 def test_get_file_type_system_magic():
