@@ -1,0 +1,3 @@
+include fact_helper_file/bin/custommime.mgc
+include custommime.mgc
+include *.mgc
