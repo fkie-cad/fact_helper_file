@@ -1,7 +1,35 @@
+[build-system]
+requires = [
+  "setuptools >= 61.0.0",
+  "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fact_helper_file"
+version = "0.2.13"
+authors = [
+    {name = "Johannes vom Dorp"}
+]
+license = {file = "LICENSE"}
+urls = {homepage = "https://github.com/fkie-cad/fact_helper_file"}
+dependencies = [
+    "python-magic",
+]
+requires-python = ">=3.7"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["fact_helper_file"]
+exclude = ["test"]
+
+[tool.setuptools.package-data]
+mypkg = ["*.mgc"]
+
 [tool.black]
 line-length = 120
 skip-string-normalization = true
-target-version = ['py37']
+target-version = ["py37"]
 
 [tool.pylint.main]
 init-hook = 'import sys; sys.path.append("./src")'
