@@ -715,10 +715,10 @@
 0	string \x53\x44\x4E	FKIE SDN Unpacker
 !:mime	firmware/sdn
 
-# Draytek Vigor Firmware
+# Draytek Vigor 167 Firmware
 # Source: https://github.com/q3k/vraytekdigor/blob/master/build/fwtool/fwimage.go
-0       string  2RDH    Draytek Vigor Firmware Container
-!:mime firmware/draytek
+0       string  2RDH    Draytek Vigor 167 Firmware Container
+!:mime firmware/draytek-vigor-167
 >4      ubelong x       header size: %u bytes,
 >8      ubelong x       file size: %u bytes,
 >12     ubelong x       crc32: 0x%X,
