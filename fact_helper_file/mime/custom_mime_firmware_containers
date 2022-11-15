@@ -719,8 +719,8 @@
 # Source: https://github.com/q3k/vraytekdigor/blob/master/build/fwtool/fwimage.go
 0       string  2RDH    Draytek Vigor Firmware Container
 !:mime firmware/draytek
->4      ubelong x       header size: %d bytes,
->8      ubelong x       file size: %d bytes,
+>4      ubelong x       header size: %u bytes,
+>8      ubelong x       file size: %u bytes,
 >12     ubelong x       crc32: 0x%X,
->80     ubelong x       kernel size: %d bytes,
->84     ubelong x       squashfs size: %d bytes,
+>80     ubelong x       kernel size: %u bytes,
+>84     ubelong x       squashfs size: %u bytes,
