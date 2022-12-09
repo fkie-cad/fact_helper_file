@@ -717,10 +717,12 @@
 
 # Draytek Vigor 167 Firmware
 # Source: https://github.com/q3k/vraytekdigor/blob/master/build/fwtool/fwimage.go
-0       string  2RDH    Draytek Vigor 167 Firmware Container
+0       string  2RDH                Draytek Vigor 167 Firmware Container
 !:mime firmware/draytek-vigor-167
->4      ubelong x       header size: %u bytes,
->8      ubelong x       file size: %u bytes,
->12     ubelong x       crc32: 0x%X,
->80     ubelong x       kernel size: %u bytes,
->84     ubelong x       squashfs size: %u bytes,
+>4      ubelong x                   header size: %u bytes,
+>8      ubelong x                   file size: %u bytes,
+>12     ubelong x                   crc32: 0x%X,
+>80     ubelong x                   kernel size: %u bytes,
+>84     ubelong x                   squashfs size: %u bytes,
+>-49    string  DrayTekImageMD5     Magic field in footer (null-terminated): %s,
+>-33    string  x                   Hex-encoded md5 checksum (null-terminated): %s,
