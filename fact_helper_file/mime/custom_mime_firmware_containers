@@ -724,5 +724,5 @@
 >12     ubelong x                   crc32: 0x%X,
 >80     ubelong x                   kernel size: %u bytes,
 >84     ubelong x                   squashfs size: %u bytes,
->-49    string  DrayTekImageMD5     Magic field in footer (null-terminated): %s,
->-33    string  x                   Hex-encoded md5 checksum (null-terminated): %s,
+>-49    string  DrayTekImageMD5
+>-33    string  x                  MD5 (footer): %s
