@@ -25,3 +25,13 @@
 !:mime compression/zlib
 0    beshort        0x785e        Zlib compressed data, compressed
 !:mime compression/zlib
+
+# ZPAQ
+# From: "Michael Gorny" <mgorny@gentoo.org> (http://mattmahoney.net/dc/zpaq.html)
+0	string	zPQ	ZPAQ stream
+!:mime	application/zpaq
+>3	byte	x	\b, level %d
+# From: Barry Carter <carter.barry@gmail.com>
+# http://encode.ru/threads/456-zpaq-updates/page32
+0	string	7kSt	ZPAQ file
+!:mime	application/zpaq
