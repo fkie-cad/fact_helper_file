@@ -133,3 +133,7 @@
 0	string	ALZ\001		ALZ archive data
 !:mime	application/x-alzip
 !:ext   alz
+
+# sharutils shell archive
+12   string  This\x20is\x20a\x20shell\x20archive    sharutils shell archive
+!:mime	application/x-shar
