@@ -137,3 +137,9 @@
 # sharutils shell archive
 12   string  This\x20is\x20a\x20shell\x20archive    sharutils shell archive
 !:mime	application/x-shar
+
+# ar archive
+0	string		=!<arch>\n		current ar archive
+!:mime	application/x-archive
+0	string		=<ar>		System V Release 1 ar archive
+!:mime	application/x-archive
