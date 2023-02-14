@@ -13,3 +13,133 @@
 0	string		070702		ASCII cpio archive (SVR4 with CRC)
 !:mime	application/x-cpio
 
+# DMS
+# from: https://github.com/file/file
+0	string	DMS! DMS archive data
+!:mime	application/x-dms
+
+# rzip archives
+# from: https://github.com/file/file
+0	string	RZIP		rzip compressed data
+!:mime	application/x-rzip
+>4	byte	x		- version %d
+>5	byte	x		\b.%d
+>6	belong	x		(%d bytes)
+
+# lzop from Markus F.X.J. Oberhumer <markus@oberhumer.com>
+# from: https://github.com/mkosola/lzop
+0	string		\x89\x4c\x5a\x4f\x00\x0d\x0a\x1a\x0a	lzop compressed data
+!:mime	application/x-lzop
+>9	beshort		<0x0940
+>>9	byte&0xf0	=0x00		- version 0.
+>>9	beshort&0x0fff	x		\b%03x,
+>>13	byte		1		LZO1X-1,
+>>13	byte		2		LZO1X-1(15),
+>>13	byte		3		LZO1X-999,
+## >>22	bedate		>0		last modified: %s,
+>>14	byte		=0x00		os: MS-DOS
+>>14	byte		=0x01		os: Amiga
+>>14	byte		=0x02		os: VMS
+>>14	byte		=0x03		os: Unix
+>>14	byte		=0x05		os: Atari
+>>14	byte		=0x06		os: OS/2
+>>14	byte		=0x07		os: MacOS
+>>14	byte		=0x0A		os: Tops/20
+>>14	byte		=0x0B		os: WinNT
+>>14	byte		=0x0E		os: Win32
+>9	beshort		>0x0939
+>>9	byte&0xf0	=0x00		- version 0.
+>>9	byte&0xf0	=0x10		- version 1.
+>>9	byte&0xf0	=0x20		- version 2.
+>>9	beshort&0x0fff	x		\b%03x,
+>>15	byte		1		LZO1X-1,
+>>15	byte		2		LZO1X-1(15),
+>>15	byte		3		LZO1X-999,
+## >>25	bedate		>0		last modified: %s,
+>>17	byte		=0x00		os: MS-DOS
+>>17	byte		=0x01		os: Amiga
+>>17	byte		=0x02		os: VMS
+>>17	byte		=0x03		os: Unix
+>>17	byte		=0x05		os: Atari
+>>17	byte		=0x06		os: OS/2
+>>17	byte		=0x07		os: MacOS
+>>17	byte		=0x0A		os: Tops/20
+>>17	byte		=0x0B		os: WinNT
+>>17	byte		=0x0E		os: Win32
+
+# Microsoft Cabinet files
+# From Stuart Caie <kyzer@4u.net> (developer of cabextract)
+# from: https://github.com/ReFirmLabs/binwalk
+0       string      MSCF\0\0\0\0    Microsoft Cabinet archive data
+!:mime	application/x-cab
+# According to libmagic comments, CAB version number is always 1.3
+>25     byte        !1              {invalid}
+>24     byte        !3              {invalid}
+>8      lelong      x               \b, %u bytes
+>28     leshort     0               {invalid}
+>28     leshort     1               \b, 1 file
+>28     leshort     >1              \b, %u files
+
+# lrzip
+# from: https://github.com/ReFirmLabs/binwalk
+0       string          LRZI            lrzip compressed data
+!:mime	application/x-lrzip
+
+# LZO
+# from: https://github.com/ReFirmLabs/binwalk
+0    string        \211LZO\000\015\012\032\012    LZO compressed data
+!:mime	application/x-lzo
+
+# HtmlHelp files (.chm)
+0	string/b	ITSF\003\000\000\000\x60\000\000\000	MS Windows HtmlHelp Data
+!:mime	application/x-chm
+
+# ACE archive (from http://www.wotsit.org/download.asp?f=ace)
+# by Stefan `Sec` Zehl <sec@42.org>
+7	string		**ACE**		ACE archive data
+!:mime	application/x-ace
+>15	byte	>0		version %d
+>16	byte	=0x00		\b, from MS-DOS
+>16	byte	=0x01		\b, from OS/2
+>16	byte	=0x02		\b, from Win/32
+>16	byte	=0x03		\b, from Unix
+>16	byte	=0x04		\b, from MacOS
+>16	byte	=0x05		\b, from WinNT
+>16	byte	=0x06		\b, from Primos
+>16	byte	=0x07		\b, from AppleGS
+>16	byte	=0x08		\b, from Atari
+>16	byte	=0x09		\b, from Vax/VMS
+>16	byte	=0x0A		\b, from Amiga
+>16	byte	=0x0B		\b, from Next
+>14	byte	x		\b, version %d to extract
+>5	leshort &0x0080		\b, multiple volumes,
+>>17	byte	x		\b (part %d),
+>5	leshort &0x0002		\b, contains comment
+>5	leshort	&0x0200		\b, sfx
+>5	leshort	&0x0400		\b, small dictionary
+>5	leshort	&0x0800		\b, multi-volume
+>5	leshort	&0x1000		\b, contains AV-String
+>>30	string	\x16*UNREGISTERED\x20VERSION*	(unregistered)
+>5	leshort &0x2000		\b, with recovery record
+>5	leshort &0x4000		\b, locked
+>5	leshort &0x8000		\b, solid
+# Date in MS-DOS format (whatever that is)
+#>18	lelong	x		Created on
+
+# ALZIP archive
+# by Hyungjun Park <hyungjun.park@worksmobile.com>, Hajin Jang <hajin_jang@worksmobile.com>
+# http://kippler.com/win/unalz/
+# https://salsa.debian.org/l10n-korean-team/unalz
+0	string	ALZ\001		ALZ archive data
+!:mime	application/x-alzip
+!:ext   alz
+
+# sharutils shell archive
+12   string  This\x20is\x20a\x20shell\x20archive    sharutils shell archive
+!:mime	application/x-shar
+
+# ar archive
+0	string		=!<arch>\n		current ar archive
+!:mime	application/x-archive
+0	string		=<ar>		System V Release 1 ar archive
+!:mime	application/x-archive
