@@ -726,3 +726,7 @@
 >84     ubelong x                   squashfs size: %u bytes,
 >-49    string  DrayTekImageMD5
 >-33    string  x                  MD5 (footer): %s
+
+# Instar BNEG container type
+0       string  \x42\x4e\x45\x47    Instar BNEG Firmware Container
+!:mime	firmware/bneg
