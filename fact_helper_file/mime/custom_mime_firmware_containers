@@ -730,3 +730,13 @@
 # Instar BNEG container type
 0       string  \x42\x4e\x45\x47    Instar BNEG Firmware Container
 !:mime	firmware/bneg
+
+# Tenvis PK2 Container
+# file starts with magic string "PK2"
+0       string  \x50\x4B\x32    Tenvis PK2 Container
+!:mime	firmware/pk2
+
+# Alphanetworks Firmware
+0       string  \x23\x21\x2f\x62\x69\x6e\x2f\x73\x68
+>0      search/0x1000   \x3d\x3d\x20\x64\x64\x50\x61\x63\x6b\x20\x42\x6f\x75\x6e\x64\x61\x72\x79\x20\x3d\x3d\x3d    Alphanetworks Camera Firmware Image
+!:mime	firmware/alphanetworks
