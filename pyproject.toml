@@ -14,9 +14,19 @@ authors = [
 license = {file = "LICENSE"}
 urls = {homepage = "https://github.com/fkie-cad/fact_helper_file"}
 dependencies = [
-    "python-magic",
+    "python-magic~=0.4.27",
+    "rich~=13.7.1",
 ]
-requires-python = ">=3.7"
+requires-python = ">=3.8"
+
+[project.scripts]
+fact-file = "fact_helper_file.fact_file:main"
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit~=3.8.0",
+    "ruff~=0.5.6",
+]
 
 [tool.setuptools.packages.find]
 where = ["."]
@@ -26,37 +36,93 @@ exclude = ["test"]
 [tool.setuptools.package-data]
 mypkg = ["*.mgc"]
 
-[tool.black]
-line-length = 120
-skip-string-normalization = true
-target-version = ["py37"]
+[tool.ruff]
+exclude = [
+    ".git",
+    ".ruff_cache",
+    ".venv",
+    "venv",
+    "data",
+]
+line-length = 99
+target-version = "py38"
 
-[tool.pylint.main]
-init-hook = 'import sys; sys.path.append("./src")'
-load-plugins = ["pylint.extensions.bad_builtin", "pylint.extensions.mccabe"]
-jobs = 0
-include-naming-hint = true
-good-names = ["i", "j", "k", "Run", "_", "db", "ex", "fd", "fo", "fp", "fw", "pw", "rv", "sc", "tc"]
+[tool.ruff.lint]
+select = [
+    "F",
+    "E",
+    "W",
+    "C90",
+    "N",
+    "UP",
+    "B",
+    "A",
+    "C4",
+    "EXE",
+    "FA",
+    "ISC",
+    "PIE",
+    "T20",
+    "PT",
+    "Q",
+    "RET",
+    "SIM",
+    "TCH",
+    "ARG",
+    "PTH",
+    "ERA",
+    "PL",
+    "PLR",
+    "PLW",
+    "PERF",
+    "RUF",
+]
+ignore = [
+    "A003",
+    "PERF203",
+    "PERF401",
+    "RUF001",
+    "RUF002",
+    "RUF003",
+    "RUF015",
+    "T201",
+    # pydantic only supports these from python>=3.9
+    "UP006",
+    "UP007",
+    # rules may cause conflicts when used with the formatter
+    "ISC001",
+    "Q001",
+]
+fixable = [
+    "F",
+    "E",
+    "W",
+    "C90",
+    "N",
+    "UP",
+    "B",
+    "A",
+    "C4",
+    "EXE",
+    "FA",
+    "ISC",
+    "PIE",
+    "T20",
+    "PT",
+    "Q",
+    "RET",
+    "SIM",
+    "TCH",
+    "ARG",
+    "PTH",
+    "ERA",
+    "PL",
+    "PLR",
+    "PLW",
+    "PERF",
+    "RUF",
+]
 
-[tool.pylint."messages control"]
-confidence = []
-disable = ["missing-docstring" , "locally-disabled", "logging-format-interpolation", "logging-fstring-interpolation"]
-
-
-[tool.pylint.reports]
-output-format = "colorized"
-msg-template="{path}:{line}: [{symbol}:{obj}] {msg}"
-
-[tool.pylint.format]
-max-line-length = 120
-
-[tool.pylint.design]
-max-args=7
-max-complexity = 7
-min-public-methods = 0
-max-public-methods = 40
-
-[tool.isort]
-line_length=120
-default_section = "THIRDPARTY"
-profile = "black"
+[tool.ruff.lint.per-file-ignores]
+# don't check for "magic value" in tests
+"tests/*" = ["PLR2004"]
