@@ -726,3 +726,31 @@
 >84     ubelong x                   squashfs size: %u bytes,
 >-49    string  DrayTekImageMD5
 >-33    string  x                  MD5 (footer): %s
+
+# Instar BNEG container type
+0       string  \x42\x4e\x45\x47    Instar BNEG Firmware Container
+!:mime	firmware/bneg
+
+# Tenvis PK2 Container
+# file starts with magic string "PK2"
+0       string  PK2     Tenvis PK2 Container
+!:mime	firmware/pk2
+
+# Alphanetworks firmware update script with binary data
+0       string  #!/bin/sh\nVENDOR
+>0      search/0x7000   \x3d\x3d\x3d\x20\x46\x69\x72\x6d\x77\x61\x72\x65\x20\x42\x6f\x75\x6e\x64\x61\x72\x79\x20\x3d\x3d\x3d    Alphanetworks Camera Firmware Image
+!:mime	firmware/alphanetworks
+
+# Xiaomi HDR1 Firmware Image
+0       string  HDR1    Xiaomi HDR1 firmware image,
+!:mime	firmware/xiaomi-hdr1
+>4      ulelong x                   signature offset: %u bytes,
+>8      ulelong x                   crc32: 0x%X
+
+# Xiaomi HDR2 Firmware Image
+0       string  HDR2    Xiaomi HDR2 firmware image,
+!:mime	firmware/xiaomi-hdr2
+>4      ulelong x                   signature offset: %u bytes,
+>8      ulelong x                   crc32: 0x%X,
+>16     string x                    model: %s,
+>24     string x                    region: %s
