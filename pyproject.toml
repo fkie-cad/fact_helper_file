@@ -5,37 +5,6 @@ requires = [
 ]
 build-backend = "setuptools.build_meta"
 
-[project]
-name = "fact_helper_file"
-version = "0.2.16"
-authors = [
-    {name = "Johannes vom Dorp"}
-]
-license = {file = "LICENSE"}
-urls = {homepage = "https://github.com/fkie-cad/fact_helper_file"}
-dependencies = [
-    "python-magic~=0.4.27",
-    "rich~=13.7.1",
-]
-requires-python = ">=3.8"
-
-[project.scripts]
-fact-file = "fact_helper_file.fact_file:main"
-
-[project.optional-dependencies]
-dev = [
-    "pre-commit~=3.8.0",
-    "ruff~=0.5.6",
-]
-
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["fact_helper_file"]
-exclude = ["test"]
-
-[tool.setuptools.package-data]
-mypkg = ["*.mgc"]
-
 [tool.ruff]
 exclude = [
     ".git",
