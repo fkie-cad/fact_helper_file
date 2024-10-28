@@ -726,3 +726,27 @@
 >84     ubelong x                   squashfs size: %u bytes,
 >-49    string  DrayTekImageMD5
 >-33    string  x                  MD5 (footer): %s
+
+# Broadcom SAO image
+0	string 		SOBJ		Broadcom SAO image
+!:mime	firmware/broadcom-sao
+>4	ubelong		x		(header CRC: 0x%08x,
+>8	string		x		type: %.4s,
+>8	string		x		{name:%.4s.sao}
+>12	ushort		x		version: 0x%04x,
+>14	ushort		x		flags: 0x%x,
+>16	ubelong+64	x		size: %d,
+>16	ubelong+64	x		{size:%d}
+>25	ubyte		x		code type: 0x%02x,
+>26	ubyte&0x7f	x		sign type: 0x%02x
+>26	ubyte&0x80	!0		(encrypted)
+>52	ubelong		x		, data CRC: 0x%08x)
+
+# Broadcom SAO encryption header
+4	string		ENCK		Broadcom SAO encryption header
+!:mime	firmware/broadcom-sao-encrypted
+>0	ulong		x		(header CRC: 0x%08x,
+>8	ubelong+0x120	x		size: %d,
+>8	ubelong+0x120	x		{size:%d}
+>12	ubelong		x		data CRC: 0x%08x,
+>16	string		x		key id: %.4s)
