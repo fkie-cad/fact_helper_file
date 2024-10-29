@@ -208,6 +208,8 @@
 !:mime  linux/kernel
 36	belong	0x016f2818	Linux kernel ARM boot executable zImage (big-endian)
 !:mime  linux/kernel
+56	lelong  0x644d5241  Linux kernel ARM64 boot executable Image
+!:mime  linux/kernel
 
 ############################################################################
 # Linux 8086 executable
