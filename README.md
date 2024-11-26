@@ -1,3 +1,4 @@
+> Superseded by https://github.com/fkie-cad/firmware-magic-database
 # FACT helper file
 
 [![Build Status](https://travis-ci.com/fkie-cad/fact_helper_file.svg?branch=master)](https://travis-ci.com/fkie-cad/fact_helper_file)
