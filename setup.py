@@ -8,10 +8,10 @@ from subprocess import run, STDOUT
 
 from setuptools import setup
 
-MODULE_NAME = 'fact_helper_file'
+MODULE_NAME = "fact_helper_file"
 MODULE_DIR = Path(__file__).parent / MODULE_NAME
-MIME_DIR = MODULE_DIR / 'mime'
-BIN_DIR = MODULE_DIR / 'bin'
+MIME_DIR = MODULE_DIR / "mime"
+BIN_DIR = MODULE_DIR / "bin"
 
 
 class OperateInDirectory:
@@ -31,16 +31,16 @@ BIN_DIR.mkdir(exist_ok=True)
 
 with OperateInDirectory(MIME_DIR):
     process = run(
-        '(cat custom_* > custommime)'
-        ' && file -C -m custommime'
-        ' && mv -f custommime.mgc ../bin/'
-        ' && rm custommime',
+        "(cat custom_* > custommime)"
+        " && file -C -m custommime"
+        " && mv -f custommime.mgc ../bin/"
+        " && rm custommime",
         shell=True,
         stderr=STDOUT,
+        check=False,
     )
     if process.returncode != 0:
-        sys.stderr.write(f'Failed to properly compile magic file\n{process.stdout}\n')
+        sys.stderr.write(f"Failed to properly compile magic file\n{process.stdout}\n")
         sys.exit(1)
-
 
 setup()
